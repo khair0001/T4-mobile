@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Student Manager Pro</string>
+    <string name="home">Home</string>
+    <string name="search">Cari</string>
+    <string name="add_student">Tambah Mahasiswa</string>
+    <string name="edit_student">Edit Mahasiswa</string>
+    <string name="student_detail">Detail Mahasiswa</string>
+    <string name="no_students">Belum ada data mahasiswa</string>
+    <string name="delete_confirm">Hapus Data Mahasiswa?</string>
+    <string name="delete_message">Apakah Anda yakin ingin menghapus data ini?</string>
+    <string name="name">Nama</string>
+    <string name="nim">NIM</string>
+    <string name="email">Email</string>
+    <string name="prodi">Program Studi</string>
+    <string name="semester">Semester</string>
+    <string name="notes">Catatan</string>
+    <string name="save">Simpan</string>
+    <string name="cancel">Batal</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Hapus</string>
+    <string name="search_hint">Cari berdasarkan nama atau NIM...</string>
+    <string name="total_students">Total Mahasiswa</string>
+</resources>
