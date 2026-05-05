@@ -2,6 +2,7 @@ package com.mobile.t4mobile
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.CheckBox
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
@@ -13,6 +14,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var authPrefManager: AuthPrefManager
     private lateinit var etUsername: TextInputEditText
     private lateinit var etPassword: TextInputEditText
+    private lateinit var cbRememberMe: CheckBox
     private lateinit var btnLogin: MaterialButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,18 +26,13 @@ class LoginActivity : AppCompatActivity() {
         // Initialize views
         etUsername = findViewById(R.id.etUsername)
         etPassword = findViewById(R.id.etPassword)
+        cbRememberMe = findViewById(R.id.cbRememberMe)
         btnLogin = findViewById(R.id.btnLogin)
 
-        // Check if already logged in
-        if (authPrefManager.isLoggedIn()) {
+        // Check if already logged in and Remember Me is active
+        if (authPrefManager.isLoggedIn() && authPrefManager.isRememberMe()) {
             navigateToMain()
             return
-        }
-
-        // Load credentials if previously saved
-        if (authPrefManager.isRememberMe()) {
-            etUsername.setText(authPrefManager.getUsername())
-            etPassword.setText(authPrefManager.getPassword())
         }
 
         // Setup login button
@@ -47,6 +44,7 @@ class LoginActivity : AppCompatActivity() {
     private fun performLogin() {
         val username = etUsername.text.toString().trim()
         val password = etPassword.text.toString().trim()
+        val rememberMe = cbRememberMe.isChecked
 
         // Validation
         if (username.isEmpty() || password.isEmpty()) {
@@ -54,10 +52,9 @@ class LoginActivity : AppCompatActivity() {
             return
         }
 
-        // Simple validation: admin/admin
-        if (username == "admin" && password == "admin") {
-            // Kita set rememberMe ke true secara default atau sesuai kebutuhan logic Anda
-            authPrefManager.saveLoginSession(username, password, true)
+        // Validasi: username = admin, password = 123456
+        if (username == "admin" && password == "123456") {
+            authPrefManager.saveLoginSession(username, password, rememberMe)
             Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
             navigateToMain()
         } else {

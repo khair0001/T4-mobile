@@ -4,66 +4,87 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     android:padding="24dp"
     android:background="@color/white">
 
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@android:drawable/ic_menu_myplaces"
-        android:contentDescription="Profile Avatar"
-        android:layout_marginBottom="24dp"
-        app:tint="@color/primary" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginBottom="32dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@android:drawable/ic_menu_myplaces"
+            android:contentDescription="Profile Avatar"
+            android:layout_marginBottom="16dp"
+            app:tint="@color/primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selamat Datang,"
+            android:textSize="14sp"
+            android:textColor="@color/dark_gray" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="admin"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary" />
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pengguna Terdaftar"
-        android:textSize="18sp"
+        android:text="Pengaturan"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="@color/black"
+        android:layout_marginBottom="16dp" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchDarkMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mode Gelap"
+        android:textSize="14sp"
         android:layout_marginBottom="8dp" />
 
-    <TextView
-        android:id="@+id/tvUsername"
-        android:layout_width="wrap_content"
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchNotif"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="admin"
-        android:textSize="16sp"
-        android:textColor="@color/primary"
-        android:layout_marginBottom="32dp" />
+        android:text="Notifikasi"
+        android:textSize="14sp"
+        android:layout_marginBottom="24dp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#E0E0E0"
-        android:layout_marginBottom="32dp" />
+        android:layout_marginBottom="24dp" />
 
-    <LinearLayout
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tentang Aplikasi"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginBottom="32dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tentang Aplikasi"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_marginBottom="8dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tugas 4 saya \nVersi 1.0\nUntuk memenuhi tugas mata kuliah pemrograman mobile tugas 4."
-            android:textSize="12sp"
-            android:textColor="#666666"
-            android:layout_marginBottom="8dp" />
-
-    </LinearLayout>
+        android:text="Aplikasi Manajemen Data Mahasiswa\nVersi 1.0\nTugas mata kuliah Pemrograman Mobile."
+        android:textSize="12sp"
+        android:textColor="#666666" />
 
     <Space
         android:layout_width="match_parent"
