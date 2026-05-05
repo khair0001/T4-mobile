@@ -12,6 +12,7 @@
 ### Fitur yang ada
 - login
 - CRUD
+- Swipe to Delete
 ---
 
 ## Teknologi yang Digunakan
