@@ -80,7 +80,11 @@
 
 ### Screenshot 7 - Menu atau Pengaturan
 
-<img width="1080" height="2340" alt="image" src="https://github.com/user-attachments/assets/399dab74-1dc3-4501-a943-75ff6c5b80ce" />
+<img width="1080" height="2340" alt="image" src="https://github.com/user-attachments/assets/b5c91521-838d-45fc-a7ee-4b465fe1822f" />
+
+<img width="1080" height="2340" alt="image" src="https://github.com/user-attachments/assets/5eceba6c-fe40-4fc3-b590-77b31a020866" />
+
+
 
 **Deskripsi**: Halaman menu atau pengaturan aplikasi dengan berbagai opsi konfigurasi.
 
