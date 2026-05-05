@@ -3,8 +3,10 @@
 ## Identitas
 
 *Nama : Ahmad Muslihul Khair*
+
 *NIM : F1D02310001*
-Mata Kuliah : Pemrograman Bergerak
+
+*Mata Kuliah : Pemrograman Bergerak*
 
 ---
 ### Fitur yang ada
@@ -21,21 +23,26 @@ Mata Kuliah : Pemrograman Bergerak
 ## Screenshots Aplikasi
 
 ### Screenshot 1 - Halaman Login
-![Screenshot 1 - Login Activity](./screenshots/01_login_screen.png)
+
+<img width="1080" height="2340" alt="image" src="https://github.com/user-attachments/assets/fb17e86a-9695-4042-91da-9c89f1a2d70e" />
+
 
 **Deskripsi**: Halaman pertama aplikasi dimana pengguna melakukan login untuk mengakses aplikasi.
 
 ---
 
 ### Screenshot 2 - Halaman Dashboard Utama
-![Screenshot 2 - Dashboard](./screenshots/02_main_dashboard.png)
+
+<img width="738" height="1600" alt="image" src="https://github.com/user-attachments/assets/c647ef24-a0cc-492c-affa-ebb575f007d1" />
+
 
 **Deskripsi**: Halaman utama setelah berhasil login yang menampilkan dashboard dan menu aplikasi.
 
 ---
 
-### Screenshot 3 - Daftar Data Mahasiswa
-![Screenshot 3 - Student List](./screenshots/03_student_list.png)
+### Screenshot 3 - Daftar search
+
+
 
 **Deskripsi**: Halaman yang menampilkan daftar lengkap data mahasiswa dalam bentuk list atau tabel.
 
