@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import com.google.android.material.slider.Slider
 import com.mobile.t4mobile.LoginActivity
 import com.mobile.t4mobile.databinding.FragmentProfileBinding
 import com.mobile.t4mobile.utils.AuthPrefManager
@@ -40,16 +41,14 @@ class ProfileFragment : Fragment() {
     }
 
     private fun setupUI() {
-        // Tampilkan nama user yang login
         binding.tvUsername.text = authPrefManager.getUsername()
-
-        // Set status switch dari SettingsManager
         binding.switchDarkMode.isChecked = settingsManager.isDarkMode()
         binding.switchNotif.isChecked = settingsManager.isNotificationEnabled()
+        binding.sliderFontSize.value = settingsManager.getFontSize().toFloat()
     }
 
     private fun setupListeners() {
-        // Switch Dark Mode
+        // Dark Mode
         binding.switchDarkMode.setOnCheckedChangeListener { _, isChecked ->
             settingsManager.setDarkMode(isChecked)
             if (isChecked) {
@@ -59,14 +58,23 @@ class ProfileFragment : Fragment() {
             }
         }
 
-        // Switch Notifikasi
+        // Notifikasi
         binding.switchNotif.setOnCheckedChangeListener { _, isChecked ->
             settingsManager.setNotificationEnabled(isChecked)
-            val message = if (isChecked) "Notifikasi diaktifkan" else "Notifikasi dimatikan"
-            Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), if (isChecked) "Notifikasi Aktif" else "Notifikasi Mati", Toast.LENGTH_SHORT).show()
         }
 
-        // Tombol Logout
+        // Font Size Slider - Recreate activity saat selesai digeser agar berlaku global
+        binding.sliderFontSize.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
+            override fun onStartTrackingTouch(slider: Slider) {}
+            override fun onStopTrackingTouch(slider: Slider) {
+                settingsManager.setFontSize(slider.value.toInt())
+                // Me-recreate activity untuk menerapkan skala font baru ke seluruh UI
+                activity?.recreate()
+            }
+        })
+
+        // Logout
         binding.btnLogout.setOnClickListener {
             showLogoutConfirmation()
         }
@@ -75,22 +83,14 @@ class ProfileFragment : Fragment() {
     private fun showLogoutConfirmation() {
         AlertDialog.Builder(requireContext())
             .setTitle("Keluar")
-            .setMessage("Apakah Anda yakin ingin keluar dari akun ini?")
+            .setMessage("Apakah Anda yakin ingin keluar?")
             .setPositiveButton("Ya") { _, _ ->
-                performLogout()
+                authPrefManager.logout()
+                val intent = Intent(requireContext(), LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
             }
             .setNegativeButton("Batal", null)
             .show()
-    }
-
-    private fun performLogout() {
-        // Membersihkan session
-        authPrefManager.logout()
-        Toast.makeText(requireContext(), "Logout berhasil", Toast.LENGTH_SHORT).show()
-
-        // Kembali ke LoginActivity
-        val intent = Intent(requireContext(), LoginActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        startActivity(intent)
     }
 }

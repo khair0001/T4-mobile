@@ -2,14 +2,13 @@ package com.mobile.t4mobile
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.mobile.t4mobile.databinding.ActivityMainBinding
 import com.mobile.t4mobile.ui.fragment.HomeFragment
 import com.mobile.t4mobile.ui.fragment.ProfileFragment
 import com.mobile.t4mobile.ui.fragment.SearchFragment
 import com.mobile.t4mobile.utils.AuthPrefManager
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var authPrefManager: AuthPrefManager
